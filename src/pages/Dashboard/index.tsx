@@ -71,7 +71,9 @@ const Dashboard = (props: any) => {
         }
     };
 
-    const editUserStory = (id: any) => {
+    const editUserStory = (id) => {
+        console.log(id);
+        // console.log('here')
         navigate(`/stories/edit/${id}`);
     };
 

@@ -10,7 +10,7 @@ const EditStory = () => {
 
     const getStory = async () => {
         try {
-            const response = await axios.get(`http://localhost:5175/stories/edit/${id}`);
+            const response = await axios.get(`http://localhost:5175/stories/show/${id}`);
             setStory(response.data.data);
         } catch (error) {
             navigate('/error')
@@ -40,7 +40,7 @@ const EditStory = () => {
 
     useEffect(() => {
         getStory();
-    }, [id]);
+    }, []);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value, type } = event.target;
