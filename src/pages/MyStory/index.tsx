@@ -88,7 +88,7 @@ const MyStory = () => {
                         <div key={story._id} className="border border-gray-200 rounded-sm shadow-md p-4 w-full sm:w-[16rem] text-center my-6">
                             <h2 className="text-xl font-semibold mb-2 break-all h-[10rem]">{story.title}</h2>
                             <p className="text-gray-500 mb-2">{story.date}</p>
-                            <p>{story.body}</p>
+                            <p className='overflow-hidden whitespace-nowrap w-[200px]'>{story.body}</p>
 
                             <hr className="h-px my-2 bg-gray-400 border-0"></hr>
                             <div

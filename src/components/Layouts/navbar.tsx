@@ -105,18 +105,23 @@ const Navbar: React.FC = () => {
             {/* Desktop NavAuthButtons */}
             <div className="float-right md:w-[33%]">
                 <div className="list-none sm:flex hidden justify-center gap-4 md:ml-12 float items-center ">
-                    {userData ? (
+                    {userData?.googleID ? (
                         <div className="flex gap-4 ">
                             <div className='flex gap-2 cursor-pointer hover:bg-[#b1db5f] h-[2.5rem] items-center px-2 '>
                                 <p>  Hi, </p> <p>{userData.lastName}</p>
                             </div>
-                            <div className="flex gap-2 cursor-pointer hover:bg-[#b1db5f] h-[2.5rem] items-center px-2">
+                            <div onClick={() => logout()} className="flex gap-2 cursor-pointer hover:bg-[#b1db5f] h-[2.5rem] items-center px-2">
                                 <FontAwesomeIcon icon={faArrowCircleRight} style={{ fontSize: 20, color: 'black' }} />
-                                <p onClick={() => logout()}>Logout</p>
+                                <p >Logout</p>
                             </div>
                         </div>
                     ) : (
-                        <div className="flex justify-between gap-1">
+                        <div
+                        onClick={() => {
+                            navigate('/stories');
+                            // setToggle(!toggle);
+                        }}
+                        className="flex justify-between gap-1">
                             <FontAwesomeIcon icon={faBook} style={{ fontSize: 20, color: 'black' }} />
                             <button className="text-black border-brand-primary" type="submit">
                                 Public Stories
@@ -147,7 +152,7 @@ const Navbar: React.FC = () => {
                 {/* Mobile Menu */}
                 {toggle && (
                     <div className="bg-white z-10 fixed top-0 left-0 my-0  sidebar" style={{ height: 'calc(100vh)', width: '19rem', transition: 'width 0.3s ease' }}>
-                        {userData ? (
+                        {userData?.googleID ? (
                             <div className="flex flex-col justify-center my-2">
                                 <div className="flex justify-center items-center my-2 h-[3rem] hover:bg-[#76ff03] hover:w-[100%]">
                                     <div className="flex gap-[3.5rem]">
@@ -224,7 +229,7 @@ const Navbar: React.FC = () => {
                             </div>
                         ) : (
                             <div className="flex flex-col justify-center my-4">
-                                <div className="flex justify-center items-center my-2">
+                                <div className="flex justify-center items-center my-2 hover:bg-[#cffab6]">
                                     {/* <p>Hi world</p> */}
                                     <button className="flex justify-center gap-3 w-[17rem] shadow-6xl rounded bg-[#76ff03] py-2" onClick={handleGoogleLogin}>
                                         <div className="flex justify-center items-center pt-1">

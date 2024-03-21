@@ -1,8 +1,7 @@
-'use client';
-
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+    const navigate = useNavigate();
     return (
         <div className="bg-[#424242] md:h-[13rem] py-4">
             {/* First container */}
@@ -20,9 +19,13 @@ const Footer = () => {
                     <div className="px-6 sm:px-0">
                         <h1 className="text-white text-2xl my-2">Links</h1>
                         <div>
-                            <ul className='text-sm'>
-                                <li className="mb-2">Public Stories</li>
-                                <li>About</li>
+                            <ul className="text-sm">
+                                <li className="mb-2 cursor-pointer transition duration-300 ease-in-out transform hover:shadow-xl hover:border hover:border-[#424242] border-[#424242] font-semibold" onClick={() => navigate('/stories')}>
+                                    Public Stories
+                                </li>
+                                <li className="cursor-pointer transition duration-300 ease-in-out transform hover:shadow-xl hover:border hover:border-[#424242] border-[#424242] font-semibold" onClick={() => navigate('/about')}>
+                                    About
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -30,11 +33,11 @@ const Footer = () => {
             </div>
 
             {/* Second Container */}
-            <div className='text-center'>
-                <p className='text-white text-sm'>
-                    Created with
-                    <span className="text-red-700"> &hearts;  </span>
-                    by Dzenis H. ➖ © {new Date().getFullYear()} ➖ <span className="text-[#7CB342]">miniStories</span>
+            <div className="text-center">
+                <p className="text-white text-sm">
+                    Rebranded
+                    <span className="text-red-700"> &hearts; </span>
+                    by Nwigwe Uzochukwu ➖ © {new Date().getFullYear()} ➖ <span className="text-[#7CB342]">miniStories</span>
                 </p>
             </div>
         </div>

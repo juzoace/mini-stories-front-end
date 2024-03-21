@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Layouts/navbar';
 import Footer from './components/Layouts/footer';
 import Login from './pages/Login';
+import About from "./pages/About"; 
 import Dashboard from './pages/Dashboard';
 import EditStory from './pages/EditStory';
 import Home from './pages/Home';
@@ -43,6 +44,7 @@ function App({ children }: PropsWithChildren<{}>): JSX.Element {
             <Routes>
                 <Route path="/" element={user?.googleID ? <Dashboard /> : <Navigate to="/login" />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/about" element={< About/>} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/stories" element={<Stories />} />
